@@ -1,0 +1,43 @@
+.container {
+  margin: 50px auto;
+  width: 100%;
+  max-width: 1200px;
+  height: calc(100% - 200px);
+}
+.cs-message-list,
+.cs-main-container,
+.cs-chat-container,
+.cs-message-input {
+  background-color: black !important;
+  border: none !important;
+}
+.cs-chat-container .cs-message-input {
+  border: none !important;
+}
+.cs-message__content {
+  background-color: #3cacf2 !important;
+}
+.cs-message-input__content-editor-wrapper,
+.cs-message-input__content-editor {
+  background-color: #717171 !important;
+  color: white !important;
+  font-weight: 200;
+  font-size: 1em !important;
+  font-family: Monospace !important;
+}
+.cs-message__content {
+  color: white !important;
+  font-weight: 300;
+  font-size: 1em !important;
+  font-family: Monospace !important;
+}
+.cs-message-list .cs-typing-indicator {
+  background-color: black !important;
+  margin-left: 15px !important;
+}
+.cs-typing-indicator__text {
+  color: #1da1f2 !important;
+}
+.cs-typing-indicator__dot {
+  background-color: #1da1f2 !important;
+}

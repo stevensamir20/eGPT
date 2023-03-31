@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useState } from "react";
+import "./main.scss";
+import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import { Header } from "./components/Header";
+import { Body } from "./components/Body";
+
+export const ThemeContext = createContext(null);
 
 function App() {
+  const [theme, setTheme] = useState("dark");
+
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <div className="App" id={theme}>
+        <Header />
+        <Body />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
