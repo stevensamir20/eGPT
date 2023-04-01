@@ -1,17 +1,28 @@
+import { useNavigate } from "react-router-dom";
+import github from "../assests/github.png";
+
 export const Header = () => {
+  const navigate = useNavigate();
   return (
     <nav>
       <div className="logo">
-        <h3>eGPT</h3>
+        <h3
+          onClick={() => {
+            navigate("/home");
+          }}
+        >
+          eGPT
+        </h3>
       </div>
-      {/* <div className="theme">
-        <input
-          type="checkbox"
-          id="themeSwitch"
-          name="theme-switch"
-          class="theme-switch__input"
+      <div className="icon">
+        <img
+          src={github}
+          alt="github"
+          onClick={() => {
+            navigate("/about");
+          }}
         />
-      </div> */}
+      </div>
     </nav>
   );
 };

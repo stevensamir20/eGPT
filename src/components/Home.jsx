@@ -9,7 +9,7 @@ import {
 } from "@chatscope/chat-ui-kit-react";
 import axios from "axios";
 
-export const Body = () => {
+export const Home = () => {
   const [messages, setMessages] = useState([
     {
       message: "Hello! How can I help you?",
@@ -53,6 +53,7 @@ export const Body = () => {
             message:
               "Your assistant is having a breakdown, please try again later...",
             sender: "assistant",
+            error: true,
           },
         ]);
         setIsTyping(false);

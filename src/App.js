@@ -1,25 +1,20 @@
-import { createContext, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./main.scss";
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import { Header } from "./components/Header";
-import { Body } from "./components/Body";
-
-export const ThemeContext = createContext(null);
+import { Home } from "./components/Home";
+import { About } from "./components/About";
 
 function App() {
-  const [theme, setTheme] = useState("dark");
-
-  const toggleTheme = () => {
-    setTheme((curr) => (curr === "light" ? "dark" : "light"));
-  };
-
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className="App" id={theme}>
-        <Header />
-        <Body />
-      </div>
-    </ThemeContext.Provider>
+    <div className="App">
+      <Header />
+      <Routes>
+        <Route path="" element={<Home />} />
+        <Route path="home" element={<Home />} />
+        <Route path="about" element={<About />} />
+      </Routes>
+    </div>
   );
 }
 

@@ -1,14 +1,15 @@
 .container {
-  margin: 50px auto;
+  margin: 50px auto 0px auto;
   width: 100%;
   max-width: 1200px;
-  height: calc(100% - 200px);
+  height: calc(100% - 130px);
+ 
 }
 .cs-message-list,
 .cs-main-container,
 .cs-chat-container,
 .cs-message-input {
-  background-color: black !important;
+  background-color: #303030 !important;
   border: none !important;
 }
 .cs-chat-container .cs-message-input {
@@ -32,7 +33,7 @@
   font-family: Monospace !important;
 }
 .cs-message-list .cs-typing-indicator {
-  background-color: black !important;
+  background-color: #303030 !important;
   margin-left: 15px !important;
 }
 .cs-typing-indicator__text {
@@ -40,4 +41,18 @@
 }
 .cs-typing-indicator__dot {
   background-color: #1da1f2 !important;
+}
+
+.cs-message--outgoing .cs-message__content {
+  border-radius: 0.7em !important;
+}
+
+.cs-message__content-wrapper {
+  margin-top: 15px !important;
+}
+svg:not(:root).svg-inline--fa {
+  color: white !important;
+}
+.cs-chat-container .cs-message-input {
+  margin-bottom: 10px;
 }
