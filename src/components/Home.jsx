@@ -18,6 +18,7 @@ export const Home = () => {
     },
   ]);
   const [isTyping, setIsTyping] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSend = (message) => {
     const newMessage = {
@@ -53,10 +54,13 @@ export const Home = () => {
             message:
               "Your assistant is having a breakdown, please try again later...",
             sender: "assistant",
-            error: true,
           },
         ]);
         setIsTyping(false);
+        setError(true);
+        setTimeout(() => {
+          setError(false);
+        }, 60000);
       });
   };
 
@@ -77,12 +81,20 @@ export const Home = () => {
             })}
           </MessageList>
           <MessageInput
-            placeholder="Type your message here..."
+            placeholder={
+              error
+                ? "Please let your assistant take a break..."
+                : "Type your message here..."
+            }
             onSend={handleSend}
             attachButton={false}
+            disabled={error}
           />
         </ChatContainer>
       </MainContainer>
+      <div id="toast" className={error ? "show" : ""}>
+        ⚠️ <span>High traffic alert</span>
+      </div>
     </div>
   );
 };
